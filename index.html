@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery</title>
+  <style>
+    .gallary-img{
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      background-color: skyblue;
+      display: block;
+      margin: 20px auto;
+      border-radius: 10px;
+    }
+    .btn-container{
+      position: relative;
+      width: fit-content;
+      display: block;
+      margin: 10px auto;
+    }
+    .btn{
+      height: 30px;
+      margin: 0 10px;
+      cursor: pointer;
+      background-color: #fff;
+      border-radius: 50%;
+       position: absolute;
+      top: 80px;
+    }
+    .btn-left{
+      left: -60px;
+    }
+
+    .btn-right{
+      right: -60px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="btn-container">
+  <img src=" ./images/0.jpeg"class="gallary-img" id="img"/>
+  <img src="./images/left-arrow.png" class="btn btn-left" onclick="prev()" />
+  <img src="./images/right-arrow.png" class="btn btn-right" onclick="next()" />
+</div>
+
+<script>
+  const imagesArr = [
+    " ./images/0.jpeg",
+    " ./images/1.jpeg",
+    " ./images/2.jpeg",
+    " ./images/3.jpeg",
+    " ./images/4.jpeg"
+  ];
+  let imgIndex = 0;
+  
+  const imgElement = document.getElementById('img');
+
+  function prev(){
+    if (imgIndex == 0) {
+      imgIndex = imagesArr.length - 1;
+    } else {
+      imgIndex--;
+    }
+    imgElement.src = imagesArr[imgIndex];
+  }
+  function next(){
+    if (imgIndex == imagesArr.length - 1) {
+      imgIndex = 0;
+    } else {
+      imgIndex++;
+    }
+    imgElement.src = imagesArr[imgIndex];
+  }
+</script>
+</body>
+</html>
